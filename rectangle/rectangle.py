@@ -3,6 +3,9 @@ import itertools as it
 import numpy as np
 
 
+__all__ = ['Rect']
+
+
 class Rect:
 
     """
