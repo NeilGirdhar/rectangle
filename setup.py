@@ -22,6 +22,6 @@ setup(
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
     ],
-    install_requires = ['numpy>=1.13']
-    python_requires='>=3.4',
+    install_requires = ['numpy>=1.13'],
+    python_requires='>=3.4'
 )
