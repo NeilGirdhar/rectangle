@@ -4,12 +4,12 @@ from distutils.core import setup
 setup(
     name = 'rectangle',
     packages = ['rectangle'],
-    version = '0.2',
+    version = '0.3',
     description = 'A class for handling rectangle regions.',
     author = 'Neil Girdhar',
     author_email = 'mistersheik@gmail.com',
     url = 'https://github.com/NeilGirdhar/rectangle',
-    download_url = 'https://github.com/neilgirdhar/rectangle/archive/0.2.tar.gz',
+    download_url = 'https://github.com/neilgirdhar/rectangle/archive/0.3.tar.gz',
     keywords = [],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
