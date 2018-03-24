@@ -1,10 +1,10 @@
-from distutils.core import setup
+from setuptools import setup, find_packages
 
 
 setup(
     name = 'rectangle',
-    packages = ['rectangle'],
     version = '0.3',
+    packages = find_packages(),
     description = 'A class for handling rectangle regions.',
     author = 'Neil Girdhar',
     author_email = 'mistersheik@gmail.com',
