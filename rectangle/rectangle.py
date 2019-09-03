@@ -1,7 +1,8 @@
-import itertools as it
+from __future__ import annotations
+
+from typing import Optional, Union
 
 import numpy as np
-
 
 __all__ = ['Rect']
 
@@ -12,8 +13,12 @@ class Rect:
     Rectangle class.
     """
 
-    def __init__(self, mins=None, maxes=None, sizes=None,
-                 dimensions=None, dtype='d'):
+    def __init__(self,
+                 mins: Optional[np.ndarray] = None,
+                 maxes: Optional[np.ndarray] = None,
+                 sizes: Optional[np.ndarray] = None,
+                 dimensions: Optional[int] = None,
+                 dtype='d'):
         if isinstance(mins, Rect):
             mins = mins
             maxes = maxes
@@ -38,19 +43,7 @@ class Rect:
         self.data[0] = mins[:dimensions]
         self.data[1] = maxes[:dimensions]
 
-    def with_added_dimensions(self, n):
-        """
-        Adds n dimensions and returns the Rect.  If n < 0, removes
-        dimensions.
-        """
-        if n > 0:
-            return Rect(np.pad(self.data, ((0, 0), (0, n)), 'constant'))
-        return Rect(self.data[:, :self.dimensions + n])
-
-    def _compare_key(self):
-        return self.data
-
-    def transformed(self, t):
+    def transformed(self, t) -> Rect:
         """
         Transforms an m-dimensional Rect using t, an nxn matrix that can
         transform vectors in the form: [x, y, z, …, 1].
@@ -66,16 +59,22 @@ class Rect:
             ))[:self.dimensions]
         return Rect(transform(self.mins), transform(self.maxes))
 
-    def bordered(self, border):
+    def bordered(self, border) -> Rect:
+        """
+        Returns a rect that is expanded in all directions by the border
+        """
         return Rect(self.mins - border,
                     self.maxes + border)
 
-    def extended_to_integer_coordinates(self, dtype=None):
+    def extended_to_integer_coordinates(self, dtype=None) -> Rect:
+        """
+        Returns a rect that is expanded in all directions by the border
+        """
         return Rect(np.floor(self.mins),
                     np.ceil(self.maxes),
                     dtype=dtype if dtype is not None else self.dtype)
 
-    def clamped(self, point_or_rect):
+    def clamped(self, point_or_rect: Union[np.ndarray, Rect]) -> Rect:
         """
         Returns the point or rectangle clamped to this rectangle.
         """
@@ -84,25 +83,15 @@ class Rect:
                         np.maximum(self.maxes, point_or_rect.maxes))
         return np.clip(point_or_rect, self.mins, self.maxes)
 
-    def rectified(self):
+    def rectified(self) -> Rect:
         """
         Fixes swaped min-max pairs.
         """
         return Rect(np.minimum(self.mins, self.maxes),
                     np.maximum(self.maxes, self.mins))
 
-    def astype(self, dtype):
+    def astype(self, dtype) -> Rect:
         return Rect(self.data.astype(dtype))
-
-    def uniform_random(self):
-        return np.array([np.random.uniform(a, b)
-                         for a, b in self.data.T])
-
-    def mins_and_sizes(self):
-        return it.chain(self.mins, self.sizes)
-
-    def mins_and_maxes(self):
-        return it.chain(self.mins, self.maxes)
 
     # Properties.
     @property

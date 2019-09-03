@@ -3,12 +3,15 @@ from setuptools import find_packages, setup
 
 setup(
     name='rectangle',
-    version='0.3',
+    version='0.4',
     description='A class for handling rectangle regions.',
     author='Neil Girdhar',
     author_email='mistersheik@gmail.com',
-    url='https://github.com/NeilGirdhar/rectangle',
-    download_url='https://github.com/neilgirdhar/rectangle/archive/0.3.tar.gz',
+    project_urls={
+        "Bug Tracker": "https://github.com/NeilGirdhar/rectangle/issues",
+        "Source Code": "https://github.com/NeilGirdhar/rectangle",
+    },
+    download_url="https://pypi.python.org/pypi/rectangle",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -17,13 +20,11 @@ setup(
         "Operating System :: OS Independent",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
     ],
     keywords=[],
     install_requires=['numpy>=1.13'],
-    python_requires='>=3.4'
+    python_requires='>=3.7',
     setup_requires=['pytest-runner'],
     tests_require=['pytest'],
 )
