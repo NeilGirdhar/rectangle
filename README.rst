@@ -1,13 +1,26 @@
 =========
 Rectangle
 =========
-.. image:: https://badge.fury.io/py/rectangle.svg
-    :target: https://badge.fury.io/py/rectangle
+
+|pypi| |py_versions|
+
+.. |pypi| image:: https://img.shields.io/pypi/v/rectangle
+   :alt: PyPI - Version
+
+.. |py_versions| image:: https://img.shields.io/pypi/pyversions/rectangle
+   :alt: PyPI - Python Version
+
+.. role:: bash(code)
+    :language: bash
+
+.. role:: python(code)
+    :language: python
 
 A class for handling rectangle regions.
 
+-------
 Example
-=======
+-------
 
 .. code-block:: python
 
@@ -29,3 +42,16 @@ Example
     In [7]: s <= r
     Out[7]: True
 
+-----------------------
+Contribution guidelines
+-----------------------
+
+- Conventions: PEP8.
+
+- How to clean the source:
+
+  - :bash:`ruff check .`
+  - :bash:`pyright`
+  - :bash:`mypy`
+  - :bash:`isort .`
+  - :bash:`pylint rectangle`

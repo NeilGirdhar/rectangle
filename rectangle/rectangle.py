@@ -26,7 +26,7 @@ class Rect:
                         mins: NDArray[Any],
                         sizes: NDArray[Any],
                         ) -> Rect:
-        return Rect(np.stack((mins, mins + sizes)))
+        return cls.from_mins_maxes(mins, mins + sizes)
 
     @classmethod
     def from_point(cls, point: NDArray[Any]) -> Rect:
@@ -51,7 +51,7 @@ class Rect:
     def bordered(self, border: float | NDArray[Any]) -> Rect:
         """Return a rect that is expanded in all directions by the border."""
         return Rect.from_mins_maxes(self.mins - border,
-                    self.maxes + border)
+                                    self.maxes + border)
 
     def extended_to_integer_coordinates(self) -> Rect:
         """Return a rect that is expanded in all directions by the border."""
@@ -70,7 +70,7 @@ class Rect:
     def rectified(self) -> Rect:
         """Fixes swaped min-max pairs."""
         return Rect.from_mins_maxes(np.minimum(self.mins, self.maxes),
-                    np.maximum(self.maxes, self.mins))
+                                    np.maximum(self.maxes, self.mins))
 
     def astype(self, dtype: DTypeLike) -> Rect:
         return Rect(self.data.astype(dtype))
@@ -83,7 +83,7 @@ class Rect:
     def union(self, other: Rect, /) -> Rect:
         """Return the smallest rectangle that contains both rectangles."""
         return Rect.from_mins_maxes(np.minimum(self.mins, other.mins),
-                    np.maximum(self.maxes, other.maxes))
+                                    np.maximum(self.maxes, other.maxes))
 
     def point_union(self, point: NDArray[Any], /) -> Rect:
         """Return the smallest rectangle that contains this rectangle and the point."""
