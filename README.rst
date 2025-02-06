@@ -1,20 +1,23 @@
-=========
-Rectangle
-=========
-
-|pypi| |py_versions|
-
-.. |pypi| image:: https://img.shields.io/pypi/v/rectangle
-   :alt: PyPI - Version
-
-.. |py_versions| image:: https://img.shields.io/pypi/pyversions/rectangle
-   :alt: PyPI - Python Version
-
 .. role:: bash(code)
     :language: bash
 
 .. role:: python(code)
     :language: python
+
+.. image:: https://img.shields.io/pypi/v/rectangle
+   :target: https://pypi.org/project/rectangle/
+   :alt: PyPI - Version
+   :align: center
+.. image:: https://img.shields.io/badge/version_scheme-EffVer-0097a7
+   :alt: EffVer Versioning
+   :target: https://jacobtomlinson.dev/effver
+.. image:: https://img.shields.io/pypi/pyversions/rectangle
+   :alt: PyPI - Python Version
+   :align: center
+
+=========
+Rectangle
+=========
 
 A class for handling rectangle regions.
 
