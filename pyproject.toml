@@ -202,7 +202,7 @@ warn_unused_configs = true
 warn_unused_ignores = true
 
 [[tool.mypy.overrides]]
-module = ["more_itertools", "networkx", "scipy.signal"]
+module = ["networkx"]
 ignore_missing_imports = true
 
 [tool.ruff]
