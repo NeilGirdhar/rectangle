@@ -25,17 +25,17 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = [
-  "numpy >= 1.21",
+  "numpy>=1.25",
 ]
 
 [project.optional-dependencies]
 dev = [
-  "isort >= 5.8",
-  "jupyter >= 1",
-  "mypy >= 1.0",
-  "pylint >= 2.8",
-  "pyright >= 0.0.13",
-  "ruff >= 0.8",
+  "isort>=5.8",
+  "jupyter>=1",
+  "mypy>=1.0",
+  "pylint>=2.8",
+  "pyright>=1",
+  "ruff>=0.9.9",
 ]
 
 [project.urls]
