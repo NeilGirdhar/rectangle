@@ -39,7 +39,7 @@ dev = [
 ]
 
 [project.urls]
-repository = "https://github.com/NeilGirdhar/rectangle"
+source = "https://github.com/NeilGirdhar/rectangle"
 
 [tool.isort]
 line_length = 100
