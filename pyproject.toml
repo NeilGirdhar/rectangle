@@ -28,7 +28,7 @@ dependencies = [
   "numpy>=1.25",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
   "isort>=5.8",
   "jupyter>=1",

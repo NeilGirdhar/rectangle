@@ -1366,7 +1366,7 @@ dependencies = [
     { name = "numpy" },
 ]
 
-[package.optional-dependencies]
+[package.dev-dependencies]
 dev = [
     { name = "isort" },
     { name = "jupyter" },
@@ -1377,16 +1377,17 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "isort", marker = "extra == 'dev'", specifier = ">=5.8" },
-    { name = "jupyter", marker = "extra == 'dev'", specifier = ">=1" },
-    { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.0" },
-    { name = "numpy", specifier = ">=1.25" },
-    { name = "pylint", marker = "extra == 'dev'", specifier = ">=2.8" },
-    { name = "pyright", marker = "extra == 'dev'", specifier = ">=1" },
-    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.9.9" },
+requires-dist = [{ name = "numpy", specifier = ">=1.25" }]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "isort", specifier = ">=5.8" },
+    { name = "jupyter", specifier = ">=1" },
+    { name = "mypy", specifier = ">=1.0" },
+    { name = "pylint", specifier = ">=2.8" },
+    { name = "pyright", specifier = ">=1" },
+    { name = "ruff", specifier = ">=0.9.9" },
 ]
-provides-extras = ["dev"]
 
 [[package]]
 name = "referencing"
